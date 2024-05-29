@@ -12,7 +12,7 @@ public class Enemy : MonoBehaviour
         _rigidbody = GetComponent<Rigidbody>();
     }
 
-    public void MoveTo(Vector3 direction)
+    public void Move(Vector3 direction)
     {
         _mover.Move(_rigidbody, direction);
     }

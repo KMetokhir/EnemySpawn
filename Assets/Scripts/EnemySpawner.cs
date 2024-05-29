@@ -44,7 +44,7 @@ public class EnemySpawner : MonoBehaviour
         {
             Vector3 spawnPosition = GetRandomSpawnPosition();
             Enemy enemy = Instantiate(_enemyPrefab, spawnPosition, Quaternion.identity);
-            enemy.MoveTo(GetRandomDirection());
+            enemy.Move(GetRandomDirection());
 
             yield return delayTime;
         }
