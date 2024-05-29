@@ -14,6 +14,6 @@ public class Enemy : MonoBehaviour
 
     public void MoveTo(Vector3 direction)
     {
-        _mover.MoveByVelocityChange(_rigidbody, direction);
+        _mover.Move(_rigidbody, direction);
     }
 }

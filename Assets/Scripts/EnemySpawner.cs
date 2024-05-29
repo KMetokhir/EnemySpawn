@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
     [SerializeField] private Enemy _enemyPrefab;
-    [SerializeField] private Transform _targetToMove;
+    [SerializeField] private Transform _directionPoint;
     [SerializeField] private List<Transform> _spawnPoints = new List<Transform>();
     [SerializeField] private float _spawnInterval = 2f;   
 
@@ -33,7 +33,7 @@ public class EnemySpawner : MonoBehaviour
 
     private Vector3 GetDirection(Vector3 spawnPosition)
     {
-        return _targetToMove.position - spawnPosition;
+        return (_directionPoint.position - spawnPosition).normalized;
     }
     
     private IEnumerator SpawnCorutine(float delay)

@@ -292,7 +292,7 @@ GameObject:
   m_Component:
   - component: {fileID: 565048289}
   m_Layer: 0
-  m_Name: TargetToMove
+  m_Name: DirectionPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -710,7 +710,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enemyPrefab: {fileID: 5319017491736374040, guid: 4dccbec85cb0c9b44845a6878d53631a, type: 3}
-  _targetToMove: {fileID: 565048289}
+  _directionPoint: {fileID: 565048289}
   _spawnPoints:
   - {fileID: 500520328}
   - {fileID: 519624396}

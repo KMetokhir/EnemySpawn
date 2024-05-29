@@ -4,8 +4,8 @@ public class Mover : MonoBehaviour
 {
     [SerializeField] private float _speed;     
 
-    public void MoveByVelocityChange(Rigidbody rigidbody, Vector3 direction)
+    public void Move(Rigidbody rigidbody, Vector3 direction)
     {        
-        rigidbody.velocity = direction.normalized*_speed;
+        rigidbody.velocity = direction*_speed;
     }   
 }
