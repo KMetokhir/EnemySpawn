@@ -5,16 +5,15 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
     [SerializeField] private Enemy _enemyPrefab;
-    [SerializeField] private Transform _directionPoint;
     [SerializeField] private List<Transform> _spawnPoints = new List<Transform>();
-    [SerializeField] private float _spawnInterval = 2f;   
+    [SerializeField] private float _spawnInterval = 2f;
 
-    private bool _isSpawn= false;
+    private bool _isSpawn = false;
     private Coroutine _spawnCoroutine;
 
     private void OnDisable()
     {
-        if(_spawnCoroutine != null)
+        if (_spawnCoroutine != null)
         {
             StopCoroutine(_spawnCoroutine);
         }
@@ -31,11 +30,12 @@ public class EnemySpawner : MonoBehaviour
         _spawnCoroutine = StartCoroutine(SpawnCorutine(_spawnInterval));
     }
 
-    private Vector3 GetDirection(Vector3 spawnPosition)
+    private Vector3 GetRandomDirection()
     {
-        return (_directionPoint.position - spawnPosition).normalized;
+        Vector3 direction = Random.insideUnitSphere.normalized;
+        return direction;
     }
-    
+
     private IEnumerator SpawnCorutine(float delay)
     {
         WaitForSeconds delayTime = new WaitForSeconds(delay);
@@ -44,12 +44,12 @@ public class EnemySpawner : MonoBehaviour
         {
             Vector3 spawnPosition = GetRandomSpawnPosition();
             Enemy enemy = Instantiate(_enemyPrefab, spawnPosition, Quaternion.identity);
-            enemy.MoveTo(GetDirection(spawnPosition));
+            enemy.MoveTo(GetRandomDirection());
 
             yield return delayTime;
         }
     }
-   
+
     private Vector3 GetRandomSpawnPosition()
     {
         int minIndex = 0;
